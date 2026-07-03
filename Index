@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-Month Full Stack Data Science & Gen AI Hub</title>
+    <!-- Tailwind CSS for modern layout -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Lucide Icons for high-fidelity visuals -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.8); }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <!-- TOP HEADER / HERO BANNER -->
+    <header class="gradient-bg text-white py-10 px-6 shadow-xl relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
+            <div>
+                <span class="bg-blue-500/30 text-blue-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-blue-400/20">6-Month Masterclass Journey</span>
+                <h1 class="text-3xl md:text-4xl font-extrabold mt-2 tracking-tight">Full Stack Data Science <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">with Gen AI & Agents</span></h1>
+                <p class="text-slate-300 mt-2 text-sm md:text-base flex items-center gap-2">
+                    <i data-lucide="user" class="w-4 h-4 text-cyan-400"></i> Mentor: Mr. Omkar &bull; <i data-lucide="clock" class="w-4 h-4 text-cyan-400"></i> Daily @ 9:00 AM IST
+                </p>
+            </div>
+            <!-- Admin Fast Contact -->
+            <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 text-center md:text-right w-full md:w-auto">
+                <p class="text-xs text-slate-300 uppercase font-semibold tracking-wider">Course Inquiries & Admin</p>
+                <p class="text-lg font-bold text-teal-300 mt-0.5">Janaki Admin</p>
+                <a href="https://wa.me/919133343371" target="_blank" class="mt-2 inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-4 py-2 rounded-lg transition-all shadow-md transform hover:-translate-y-0.5">
+                    <i data-lucide="message-square" class="w-4 h-4"></i> WhatsApp Chat Only
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN APP WRAPPER -->
+    <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- LEFT PANEL: NAVIGATION & PROGRESS TRACKING -->
+        <aside class="lg:col-span-4 space-y-6">
+            
+            <!-- OVERALL 6-MONTH PROGRESS ARCHETYPE -->
+            <div class="glass-card p-5 rounded-2xl shadow-sm border border-slate-200">
+                <h3 class="font-bold text-slate-900 flex items-center gap-2 mb-3">
+                    <i data-lucide="trending-up" class="text-blue-600"></i> 6-Month Roadmap Tracker
+                </h3>
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between text-xs text-slate-500 mb-1">
+                            <span>Overall Course Completion</span>
+                            <span id="overall-progress-text" class="font-bold text-blue-600">5%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-2.5">
+                            <div id="overall-progress-bar" class="bg-gradient-to-r from-blue-600 to-indigo-600 h-2.5 rounded-full" style="width: 5%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Timeline Modules Toggle -->
+                <div class="mt-4 pt-4 border-t border-slate-100 grid grid-cols-3 gap-2 text-center text-xs">
+                    <div class="p-2 bg-blue-50 text-blue-700 font-semibold rounded-lg border border-blue-100">M1-M2:<br>Core Foundations</div>
+                    <div class="p-2 bg-slate-50 text-slate-600 rounded-lg border border-slate-100 opacity-60">M3-M4:<br>ML & Deep Learning</div>
+                    <div class="p-2 bg-slate-50 text-slate-600 rounded-lg border border-slate-100 opacity-60">M5-M6:<br>GenAI & Agent Frameworks</div>
+                </div>
+            </div>
+
+            <!-- SEARCH & SYSTEM UTILITIES -->
+            <div class="glass-card p-5 rounded-2xl shadow-sm space-y-4">
+                <div class="relative">
+                    <i data-lucide="search" class="absolute left-3 top-3.5 text-slate-400 w-4 h-4"></i>
+                    <input type="text" id="search-input" oninput="filterDays()" placeholder="Search daily topics or keywords..." class="w-full pl-9 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                </div>
+                
+                <!-- FREE CLOUD SYSTEM TOOLS (PORTABILITY) -->
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-center justify-between gap-2 text-xs">
+                    <span class="text-slate-500 font-medium flex items-center gap-1"><i data-lucide="database" class="w-3.5 h-3.5 text-blue-500"></i> 100% Free Backup:</span>
+                    <div class="flex gap-2">
+                        <button onclick="exportData()" class="px-2.5 py-1.5 bg-white border border-slate-200 rounded-md shadow-sm hover:bg-slate-100 font-medium text-slate-700">Export</button>
+                        <button onclick="document.getElementById('import-file').click()" class="px-2.5 py-1.5 bg-white border border-slate-200 rounded-md shadow-sm hover:bg-slate-100 font-medium text-slate-700">Import</button>
+                        <input type="file" id="import-file" class="hidden" onchange="importData(event)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLASS TIMELINE SELECTOR LIST -->
+            <div class="glass-card p-5 rounded-2xl shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="calendar" class="text-blue-600"></i> Daily Class Directory
+                    </h3>
+                    <span id="day-counter" class="bg-slate-100 text-slate-600 font-bold text-xs px-2.5 py-1 rounded-full">10 Days</span>
+                </div>
+
+                <div id="days-list-container" class="space-y-2 max-h-[480px] overflow-y-auto pr-2">
+                    <!-- Javascript populates days lists here -->
+                </div>
+
+                <!-- TRIGGER ADMIN MODAL BUTTON -->
+                <button onclick="openAdminModal()" class="w-full mt-4 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-bold py-3 rounded-xl transition-all shadow-md transform active:scale-95 cursor-pointer">
+                    <i data-lucide="plus-circle" class="w-4 h-4"></i> Automation: Add Next Day Class
+                </button>
+            </div>
+        </aside>
+
+        <!-- RIGHT PANEL: DYNAMIC COURSE CONTENT DISPLAY WORKSPACE -->
+        <section class="lg:col-span-8">
+            <div id="active-class-workspace" class="space-y-6">
+                <!-- Dynamically populated from JS state management based on selection -->
+            </div>
+        </section>
+    </main>
+
+    <!-- AUTOMATION ADMIN MODAL (ADD NEW DAY RECONCILIATION) -->
+    <div id="admin-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-6 border border-slate-200 transform transition-all animate-in fade-in zoom-in-95 duration-150">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-3 mb-4">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <i data-lucide="cpu" class="text-blue-600"></i> Course AI Administrator Portal
+                </h3>
+                <button onclick="closeAdminModal()" class="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600"><i data-lucide="x"></i></button>
+            </div>
+            
+            <form id="add-day-form" onsubmit="handleAddNewDay(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Class Day Number</label>
+                    <input type="number" id="form-day-num" required placeholder="e.g. 11" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Core Technical Topic Title</label>
+                    <input type="text" id="form-day-title" required placeholder="e.g. Python Functions and Global Scope" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">YouTube Recording Link</label>
+                    <input type="url" id="form-day-link" required placeholder="e.g. https://youtu.be/..." class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Short Description for Kids/Grandparents</label>
+                    <textarea id="form-day-desc" rows="2" required placeholder="Explain simply what this topic does..." class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                </div>
+                <div class="bg-blue-50 p-3 rounded-xl border border-blue-100 text-[11px] text-blue-800 leading-relaxed">
+                    <strong>💡 Automation Note:</strong> Saving this automatically injects the class metadata, setups dynamic generation presets for practice exercises, and configures review benchmarks into your local remote dashboard state instantly without computing cost.
+                </div>
+                <div class="flex gap-3 pt-2">
+                    <button type="button" onclick="closeAdminModal()" class="w-1/2 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-sm transition-all">Cancel</button>
+                    <button type="submit" class="w-1/2 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm transition-all shadow-md">Deploy Day Content</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CORE JAVASCRIPT STATE ENGINE & SEED DATA -->
+    <script>
+        // Core Static Initial State: Days 1-10
+        const defaultDaysData = [
+            {
+                day: 1,
+                title: "Introduction to Full Stack Data Science & AI Systems",
+                youtube: "https://www.youtube.com/embed/vRcoeWZ7aec",
+                desc: "An entry-level map showcasing how modern software engineering connects with Machine Learning pipelines and AI automation brains.",
+                explanation: "Data science is the process of collecting raw scattered data, analyzing it, and drawing smart conclusions. Full Stack Data science extends this further by teaching you how to deploy this brain model live onto a real working website application so real customers can interact with it.",
+                keypoints: [
+                    "Data Lifecycle: Ingestion, Preprocessing, Modeling, Deployment.",
+                    "Why GenAI? Modern industries combine statistical math models with Large Language Model APIs.",
+                    "Course Expectation Checklist: 6 Months of consistency leads to industrial developer capability."
+                ],
+                exercises: [
+                    { snippet: "# Think like an Engineer!\n# If a system receives 500 records per minute,\nhow many records does it compile in 1 hour?\n\nrecords_per_min = 500\nhours = 1\ntotal = records_per_min * 60 * hours\nprint('Total computed:', total)", task: "Change hours variables to 24 to find the daily tracking volume." },
+                    { snippet: "# Identify the system asset status\ndataset_name = 'Customer_Churn_V1'\nis_cleaned = False\n\nprint('Preparing system report for:', dataset_name)", task: "Modify the boolean flag 'is_cleaned' to True and simulate run execution." }
+                ],
+                quiz: {
+                    q: "What component characterizes a 'Full Stack' Data Science deployment over a simple local model trial?",
+                    options: ["Writing code in a notepad document", "Deploying models to an accessible infrastructure/API layer for production", "Formatting data cells inside basic spreadsheets manually"],
+                    correct: 1
+                }
+            },
+            {
+                day: 2,
+                title: "Setting Up Your Technical Basecamp: Python & Anaconda Ecosystem",
+                youtube: "https://www.youtube.com/embed/EShjxKfZEuE",
+                desc: "Downloading and configuring the developer workbench tools safely without confusing terminal setups.",
+                explanation: "To write code comfortably, we create an environment called Anaconda. Think of Anaconda as a secure toolbox containing Python, along with pre-installed heavy-duty calculation packages like NumPy and Pandas, avoiding compatibility issues.",
+                keypoints: [
+                    "Python Interpreter: The engine executing human-readable script statements into machine code.",
+                    "Anaconda & Miniconda: Package distribution frameworks managing clean runtime environments.",
+                    "Jupyter Notebooks: Interactive local cells facilitating cell-by-cell computing experimentation."
+                ],
+                exercises: [
+                    { snippet: "# Checking active environment software configuration\nimport sys\nprint('Target execution pipeline path:', sys.version)", task: "Run this configuration layout to print your Python kernel build metadata." }
+                ],
+                quiz: {
+                    q: "Why is Anaconda highly recommended for starting Data Science practitioners?",
+                    options: ["It automates package dependency workflows and installs mathematical environments out of the box.", "It runs your web browser without an active connection.", "It design images for advertising projects."],
+                    correct: 0
+                }
+            },
+            {
+                day: 3,
+                title: "Python Foundational Mechanics: Memory Elements & Variable Scopes",
+                youtube: "https://www.youtube.com/embed/dJwN9_-Iaf0",
+                desc: "How computers securely save text numbers and values in named lockers to remember them later.",
+                explanation: "Variables are simple virtual label containers. If you say `age = 25`, the computer assigns an entity space to remember the value 25 under the tag 'age'. Changing it later updates that data block.",
+                keypoints: [
+                    "Dynamic Typing: Python assigns types dynamically based on runtime assignments.",
+                    "Immutable Primitive Types: Integers, floats, strings, and boolean values.",
+                    "Safe Naming Conventions: Using descriptive snake_case for clear readable management."
+                ],
+                exercises: [
+                    { snippet: "user_name = 'Omkar Class Student'\naccount_status = 'Active'\n\nprint(user_name + ' account status is currently ' + account_status)", task: "Update user_name with your unique identifier code name." },
+                    { snippet: "initial_investment = 1000\nroi_multiplier = 2.5\n\nfinal_valuation = initial_investment * roi_multiplier\nprint('Valuation metric result:', final_valuation)", task: "Change the parameter multiplier to 4.2 and calculate updated value returns." }
+                ],
+                quiz: {
+                    q: "Which declaration represents a standard descriptive Variable construct according to standard best practices?",
+                    options: ["1st_val = 100", "user_registration_status = True", "user Registration Status = True"],
+                    correct: 1
+                }
+            },
+            {
+                day: 4,
+                title: "Deepening Data Types: Numeric Sets, Text Manipulation & Cast Operators",
+                youtube: "https://www.youtube.com/embed/nMLEMIZRU_w",
+                desc: "Transforming variable definitions between text chains and numerical values safely.",
+                explanation: "Sometimes text characters look like numbers, for example `'2026'`. If you try to add this string directly to another integer, Python throws an error. Typecasting allows changing types like `int('2026')` so mathematical operators work cleanly.",
+                keypoints: [
+                    "String Formatting: Utilizing modern f-strings for robust string interpolation.",
+                    "Type Compatibility Testing: Invoking type() declarations to verify input formats.",
+                    "Mathematical Conversions: Transforming integers into floats or string objects via cast structures."
+                ],
+                exercises: [
+                    { snippet: "raw_input_metric = '550'\n# Convert to real integer number format below\nprocessed_metric = int(raw_input_metric)\n\nprint(processed_metric + 50)", task: "Alter the raw metric string content to '1000' and run calculation check blocks." }
+                ],
+                quiz: {
+                    q: "What occurs if you attempt evaluating the structural code statement: 'Value' + 10?",
+                    options: ["It returns 'Value10' seamlessly.", "It raises a TypeError because strings cannot be implicitly concatenated with integers.", "It converts 'Value' to zero implicitly."],
+                    correct: 1
+                }
+            },
+            {
+                day: 5,
+                title: "Control Flow Logic: Execution Pathing via Conditions & Decision Matrix Blocks",
+                youtube: "https://www.youtube.com/embed/aMiciEIKxYY",
+                desc: "Teaching code architectures to make choices using logic gates like true or false scenarios.",
+                explanation: "Conditional logic uses keywords like `if`, `elif`, and `else` to control which blocks of code run based on conditions. For instance, code can verify whether data has loaded fully before starting calculations.",
+                keypoints: [
+                    "Boolean Logic Conditions: Evaluating logical parameters using equivalence testing.",
+                    "Indentation Constraints: Structural block separation via precise workspace tab spacing.",
+                    "Chained Evaluations: Orchestrating compound conditions using clean logic syntax (and, or)."
+                ],
+                exercises: [
+                    { snippet: "attained
